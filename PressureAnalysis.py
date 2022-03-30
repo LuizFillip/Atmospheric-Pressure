@@ -11,27 +11,39 @@ import numpy as np
 import os
 
 
-infile = 'station_data_brasil/'
+infile = 'Database/station_data_brasil/'
 
 
    
 
 stations = ['SMAR','MSMN','MTCA','SPFR']
 
-def read_files(stations, infile):
+def select_files(stations, infile):
+    
     _, _, files = next(os.walk(infile))
     
+    out = []
     for filename in files:
         if any(sts.lower() in filename for sts in stations):
-            print(filename)
+            out.append(filename)
             
-    return 
+    return out
 
-_, _, files = next(os.walk(infile))
+#
+#df = pd.read_csv(infile + filename, 
+#                 delim_whitespace = True) 
 
+files = select_files(['151'], infile)
+    
 filename = files[0]
-df = pd.read_csv(infile + filename, 
-                 delim_whitespace = True, 
-                 columns = ['time', ]) 
-#print(df)
 
+df = pd.read_csv(infile + filename, delimiter=" ", header=None)
+
+df.index = pd.to_datetime(df[0])
+
+
+df = df[[0,1]]
+
+print(df.head())
+
+df[1].plot()
