@@ -14,43 +14,47 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-import sys
 
+from MagnetometerAnalysis.SitesLocations import *
 
-sys.path.insert(1, 'MagnetometerAnalysis/')
-
-from SitesLocations import *
-
-
-start_lat, end_lat = -60, -35 #-60, 10
-start_lon, end_lon = -60, -30 #-80, -30
-step_lat, step_lon = 5, 5
-
-
-
-
-df = pd.read_csv('PressureAnalysis/rel_station.csv', 
-                 delimiter = ';', header = 1)
-
-print(df)
-
-def main():
+def PlotMap(lat, lon, name):
     
-    fig, ax = features_of_map(start_lon, end_lon, step_lon, 
-                start_lat, end_lat, step_lat)    
+    size = 13
     
-    for num in range((len(df))):
-        
-        size = 20
-        
-        lon = df.lon.values[num]
-        lat = df.lon.values[num]
-        name = df.Estacao.values[num]
-        
-        ax.plot(lon, lat, 'o', color = 'red', 
+    ax.plot(lon, lat, 'o', color = 'red', 
                     marker = '^', markersize = size)
         
-        offset = 1
-        ax.text(lon + 1, lat, name, fontsize = size)
+    offset = 1
+    ax.text(lon + 1, lat, name, fontsize = size)
         
-#main()
+
+df = pd.read_csv("Database/Stations.dat", delim_whitespace= True)
+
+stations = ['braz0151.txt', 'ceeu0151.txt', 'eesc0151.txt', 'itai0151.txt', 
+         'msaq0151.txt', 'msbl0151.txt', 'msjr0151.txt', 'msmn0151.txt', 
+         'msnv0151.txt', 'mspm0151.txt', 'mspp0151.txt', 'mtca0151.txt', 
+         'mtsc0151.txt', 'prma0151.txt', 'prur0151.txt', 'rnna0151.txt', 
+         'rsal0151.txt', 'seaj0151.txt', 'sjrp0151.txt', 'smar0151.txt', 
+         'spfr0151.txt', 'topl0151_n.txt']
+
+
+sts = pd.read_csv('Database/status/stations.txt', 
+                  delim_whitespace = True)
+
+sts = sts.dropna()
+
+start_lat, end_lat = -30, 0 
+start_lon, end_lon = -60, -30 
+step_lat, step_lon = 5, 5
+    
+fig, ax = features_of_map(start_lon, end_lon, step_lon, 
+                          start_lat, end_lat, step_lat)    
+
+for num in range(len(sts)):
+    name = sts.iloc[num]['site']
+    acc = sts.iloc[num]['acronym']
+    lat =  sts.iloc[num]['Lat']
+    lon =  sts.iloc[num]['Lon']
+    if any(s[:4].upper() == acc for s in stations):
+        PlotMap(float(lat), float(lon), name)
+

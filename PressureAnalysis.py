@@ -9,12 +9,49 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import sys
+import subprocess
+
+def rinex_files():
+    '''
+    Code Routine from Marcelo Banik de Padua (INPE)
+    
+    '''
+
+    if 1 == len(sys.argv):
+        message = 'usage: %s rinexMet\n' % sys.argv[0].split('/')[-1]
+        message += 'read rinex met file and output\n'
+        message += 'yyyy-mm-ddThh:mm:ss PR TD HR\n'
+        message += 'where:\n'
+        message += ' PR : Pressure (mbar)\n'
+        message += ' TD : Dry temperature (deg Celsius)\n'
+        message += ' HR : Relative humidity (percent)\n'
+        print(message)
+        sys.exit(1)
+
+    rinex = sys.argv[1]
+    N = int(subprocess.check_output(['grep', '-n', 'END OF HEADER$', rinex]
+                                    ).decode('utf-8').split(':')[0])
+    
+    widths = [3, 3, 3, 3, 3, 3, 7, 7, 7]
+    columns = ['y', 'm', 'd', 'H', 'M', 'S', 'PR', 'TD', 'HR']
+
+    def dateparser(x): 
+        return pd.datetime.strptime(x, '%y %m %d %H %M %S')
+    
+    met = pd.read_fwf(rinex, widths=widths, skiprows=N,
+                      parse_dates=[[0, 1, 2, 3, 4, 5]],
+                      date_parser=dateparser,
+                      index_col='y_m_d_H_M_S',
+                      names=columns)
+
+    for row in met.itertuples():
+        print('{} {} {} {}'.format(row[0].strftime('%Y-%m-%dT%H:%M:%S'),
+                                   row[1], row[2], row[3]))
+
 
 
 infile = 'Database/station_data_brasil/'
-
-
-   
 
 stations = ['SMAR','MSMN','MTCA','SPFR']
 
@@ -29,21 +66,10 @@ def select_files(stations, infile):
             
     return out
 
-#
-#df = pd.read_csv(infile + filename, 
-#                 delim_whitespace = True) 
+files = select_files(['0151'], infile)
 
-files = select_files(['151'], infile)
+for filename in files:
+    acronym = filename[:4].upper()
     
-filename = files[0]
-
-df = pd.read_csv(infile + filename, delimiter=" ", header=None)
-
-df.index = pd.to_datetime(df[0])
 
 
-df = df[[0,1]]
-
-print(df.head())
-
-df[1].plot()

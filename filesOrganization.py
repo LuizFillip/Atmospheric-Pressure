@@ -9,9 +9,23 @@ import os
 import pandas as pd
 
 
+import sys
+
+infile = ('C:/Users/LuizF/Google Drive/My Drive/' + 
+  'Python/code-master/JunkCode/')
+
+sys.path.insert(1, infile)
+
+from GeoMagCoords import *
+    
 
 
 def get_status(infile, filename):
+    
+    """
+    Read data and find latitudes and longitudes
+    for each sites
+    """
     
     def find_between(s, first, last):
         "Find string between two substrings [duplicate]"
@@ -32,10 +46,16 @@ def get_status(infile, filename):
             site = find_between(s, "(", ")" )
             acronym = s[:4].strip()
             status = find_between(filename, "names_", ".txt" )
-    
-            result.append([site, acronym, status])
             
-    return pd.DataFrame(result, columns = ['site', 'acronym', 'status'])
+            try:
+                lat_geo, lon_geo = get_coords(site, 'Brazil')
+            except:
+                lat_geo, lon_geo = np.nan, np.nan
+
+            result.append([site, acronym, lat_geo, lon_geo, status])
+            
+    return pd.DataFrame(result, columns = ['site', 'acronym', 
+                                           'Lat', 'Lon', 'status'])
 
 def main(infile):
 

@@ -1,179 +1,358 @@
- site acronym status
-0 Petrolina/PE PEPE atualizadas
-1 Imperatriz/MA IMPZ atualizadas
-2 Eusébio/CE CEEU atualizadas
-3 "IFSC Florianopolis - IFSC/SC" IFSC atualizadas
-4 Ubatuba/SP UBA1 atualizadas
-5 Cananéia/SP NEIA atualizadas
-6 "Ilha Solteira/SP" ILHA atualizadas
-7 Itaberaba/BA BAIT atualizadas
-8 "Belém/PA - INPE" BEPA atualizadas
-9 Araquari/SC SCAQ atualizadas
-10 Viçosa/MG VICO atualizadas
-11 Humaitá/AM AMHA atualizadas
-12 Canarana/MT MTCN atualizadas
-13 Cananeia/SP NEIA atualizadas
-14 Vitoria(CEFET CEFE atualizadas
-15 "Ilha Solteira/SP" ILHA atualizadas
-16 Cascavel/PR PRCV atualizadas
-17 "Campo Grande/MS" MSCG atualizadas
-18 "Santana - Docas/AP" APS1 atualizadas
-19 "Cruzeiro do Sul/AC" CRUZ atualizadas
-20 Macapá/AP APMA atualizadas
-21 Goiânia/GO GOGY atualizadas
-22 Botucatu/SP SPBO atualizadas
-23 Chapecó/SC SCCH atualizadas
-24 Guarapuava/PR PRGU atualizadas
-25 Juína/MT MTJI atualizadas
-26 "Nova Xavantina/MT" MTNX atualizadas
-27 "Barra do Garças/MT" MTGA atualizadas
-28 Recife/PE PERC atualizadas
-29 Uberlândia/MG MGUB atualizadas
-30 "Rio Branco/AC" RIOB atualizadas
-31 Teresina/PI PITN atualizadas
-32 Dourados/MS MSDR atualizadas
-33 Corumbá/MS CORU atualizadas
-34 "Passo Fundo/RS" RSPF atualizadas
-35 "Cerro Largo/RS" RSCL atualizadas
-36 Marabá/PA MABA atualizadas
-37 "Bom Jesus da Lapa/BA" BABJ atualizadas
-38 Vassouras/RJ RJVA atualizadas
-39 Colíder/MT MTCO atualizadas
-40 "Pau dos Ferros/RN" RNPF atualizadas
-41 "Barra do Garças/MT" MTGA atualizadas
-42 Jataí/GO GOJA atualizadas
-43 "Foz do Iguaçu - ITAIPU/PR" ITAI atualizadas
-44 Tefé/AM AMTE atualizadas
-45 "Boa Vista/RR" BOAV atualizadas
-46 Belém/PA BEPA atualizadas
-47 Piracicaba/SP SPPI atualizadas
-48 Campina/SP SPC1 atualizadas
-49 Palmas/TO TOPL atualizadas
-50 "João Pessoa/PB" PBJP atualizadas
-51 "Porto Velho/RO" POVE atualizadas
-52 "Porto Alegre/RS" POAL atualizadas
-53 "Salvador/BA - INCRA" SAVO atualizadas
-54 Aquidauana/MS MSAQ atualizadas
-55 "Afogados da Ingazeira/PE" PEAF atualizadas
-56 Belém/PA BELE atualizadas
-57 Aracaju/SE SEAJ atualizadas
-58 "Campo Grande/MS" MSCG atualizadas
-59 Jaíba/MG JAMG atualizadas
-60 Bacabal/MA MABB atualizadas
-61 "São Luís/MA" SALU atualizadas
-62 Vitória/ES CEFE atualizadas
-63 "Fortaleza (PORTO" CEFT atualizadas
-64 "Belo Horizonte/MG" MGBH atualizadas
-65 "Rio de Janeiro/RJ" RIOD atualizadas
-66 "São Félix do Araguaia/MT" MTSF atualizadas
-67 Balsas/MA MABS atualizadas
-68 Jaíba/MG JAMG atualizadas
-69 "Cruzeiro do Sul/AC" CRUZ atualizadas
-70 Arapiraca/AL ALAR atualizadas
-71 Gurupi/TO TOGU atualizadas
-72 "Vitória da Conquista/BA" BAVC atualizadas
-73 Jataí/GO GOJA atualizadas
-74 Marabá/PA MABA atualizadas
-75 Macapá/AP MAPA atualizadas
-76 "Cachoeira Paulista/SP" CHPI atualizadas
-77 Mossoró/RN RNMO atualizadas
-78 "São José dos Campos/SP" SJSP atualizadas
-79 Aquidauana/MS MSAQ atualizadas
-80 Fernandópolis/SP SPFE atualizadas
-81 Piracicaba/SP SPPI atualizadas
-82 "Montes Claros/MG" MCL1 atualizadas
-83 Manaus/AM NAUS atualizadas
-84 Tabatinga/AM AMTA atualizadas
-85 Jaboticabal/SP SPJA atualizadas
-86 "ESCOLA POLITÉCNICA DA USP/SP" POLI atualizadas
-87 CANANÉIA/SP NEIA atualizadas
-88 Gurupi/Tocantins TOGU atualizadas
-89 Brasília/DF BRAZ atualizadas
-90 Fernandópolis/SP SPFE atualizadas
-91 Marabá/PA MABA atualizadas
-92 Floriano/PI PIFL atualizadas
-93 "Escola Politécnica da USP/SP" POLI atualizadas
-94 "São Luis/MA" SALU atualizadas
-95 Altamira/PA PAAT atualizadas
-96 Fortaleza/CE CEFT atualizadas
-97 Tabatinga/AM AMTA atualizadas
-98 Floriano/PI PIFL atualizadas
-99 Brasília/DF BRAZ atualizadas
-100 imbituba/SC IMBT atualizadas
-101 "Cachoeira Paulista/SP" CHPI atualizadas
-0 "Campo Grande - EMBRAPA/MS" MSGR novas
-1 "Sao Paulo - USP Leste" EACH novas
-2 Maracaju MSMJ novas
-3 "São Leopoldo/RS" RSSL novas
-4 Patos/PB PBPT novas
-5 Carceres MTCA novas
-6 Lavras/MG MGLA novas
-7 Itiquira MTIT novas
-8 "Nova Mutum" MTNM novas
-9 "Parintins - UFAM/AM" AMPT novas
-10 "Tabatinga - IFAM/AM" AMTG novas
-11 "SESC Pantanal" MTSC novas
-12 "Coari - IBGE/AM" AMCR novas
-13 "Paulo Afonso/BA" BAPA novas
-14 "Nova Venecia/ES" ESNV novas
-15 "Macapá - DTCEA/AP" APMA novas
-16 "Juiz de Fora/MG" MGJF novas
-17 "Teofilo Otoni/MG" MGTO novas
-18 Maceió ALMA novas
-19 "Bela Vista/MS" MSBL novas
-20 Jardim/MS MSJR novas
-21 "Corumba - UFMS/MS" CORU novas
-22 "Novo Mundo/MS" MSMN novas
-23 "Porto Murtinho/MS" MSPM novas
-24 Barcelos/AM AMBC novas
-25 "Recife - IFPE/PE" PERC novas
-26 Umuarama/PR PRUR novas
-27 Humaitá/AM AMHA novas
-28 Caçador SCCA novas
-29 "Ourinhos - UNESP" SPOR novas
-30 Manaus/AM AMUA novas
-31 "Pontes e Lacerda" MTLA novas
-32 "Primavera do Leste" MTLE novas
-33 "Campinas - UNICAMP/SP" SPC1 novas
-34 Naviraí MSNA novas
-35 fernandópolis/SP SPFE novas
-36 "Santana - Docas/AP" APS1 novas
-37 "Bom Jesus da Lapa - IF Baiano/BA" BABJ novas
-38 Aquidauana/MS MSAQ novas
-39 "Nova Xavantina/MT" MTNX novas
-40 Maués/AM AMMU novas
-41 Tabatinga/AM AMTA novas
-42 Itaberaba/BA BAIT novas
-43 Uruaçu/GO GOUR novas
-44 Florianópolis/SC IFSC novas
-45 Santarém/PA PASM novas
-46 Franca/SP SPFR novas
-47 "Belém INPE/PA" BEPA novas
-48 Coari/AM COAM novas
-49 Jaíba/MG JAMG novas
-50  Baca novas
-51 "Laranjal do Jari/AP" APLJ novas
-52 "Foz do Iguaçu - ITAIPU/PR" ITAI novas
-53 "Monte Carmelo/MG" MGMT novas
-54 "Corumbá - Embrapa/MS" MSCB novas
-55 "Ponta Porã/MS" MSPP novas
-56 "Barra do Garcas - UFMT/MT" MTGA novas
-57 "São José dos Campos/SP" SJSP novas
-58 "LABORATÓRIO GRAVIMETRIA ONRJ - VASSOURAS/RJ" RJVA novas
-59 "Passo Fundo/RS" RSPF novas
-60 "Sorocaba - UNESP/SP" SPS1 novas
-61 Itacoatiara/AM ITAM novas
-62 "Fundacao Joao Pinheiro/MG" MGJP novas
-63 Juína/MT MTJI novas
-64 "Altamira - UFPA" PAAR novas
-65 "Niteroi UFF/RJ" RJNI novas
-66 Parintins/AM AMPR novas
-0 Aquidauana/MS MSAQ inoperantes
-1 Cáceres/MT MTCA inoperantes
-2 "Pelotas - Capão Do Leão/RS" RSPE inoperantes
-3 "Cruzeiro Do Sul/AC" CRUZ inoperantes
-4 Jaíba/MG JAMG inoperantes
-5 Maracaju/MS MSMJ inoperantes
-6 "Mundo Novo/MS" MSMN inoperantes
-7 "Primavera Do Leste/MT" MTLE inoperantes
-8 "São Carlos/SP" EESC inoperantes
+ site acronym Lat Lon status
+0 Petrolina/PE PEPE -9.38 -40.5 atualizadas
+1 Imperatriz/MA IMPZ -5.53 -47.48 atualizadas
+2 Eusébio/CE CEEU -3.89 -38.45 atualizadas
+3 "IFSC Florianopolis - IFSC/SC" IFSC -27.6 -48.57 atualizadas
+4 Ubatuba/SP UBA1 -23.43 -45.08 atualizadas
+5 Cananéia/SP NEIA -25.01 -47.93 atualizadas
+6 "Ilha Solteira/SP" ILHA -20.43 -51.34 atualizadas
+7 Itaberaba/BA BAIT -12.52 -40.31 atualizadas
+8 "Belém/PA - INPE" BEPA   atualizadas
+9 Araquari/SC SCAQ -26.44 -48.76 atualizadas
+10 Viçosa/MG VICO -20.75 -42.88 atualizadas
+11 Humaitá/AM AMHA -7.51 -63.02 atualizadas
+12 Canarana/MT MTCN -13.56 -52.27 atualizadas
+13 Cananeia/SP NEIA -25.01 -47.93 atualizadas
+14 Vitoria(CEFET CEFE   atualizadas
+15 "Ilha Solteira/SP" ILHA -20.43 -51.34 atualizadas
+16 Cascavel/PR PRCV -24.96 -53.46 atualizadas
+17 "Campo Grande/MS" MSCG -20.48 -54.61 atualizadas
+18 "Santana - Docas/AP" APS1   atualizadas
+19 "Cruzeiro do Sul/AC" CRUZ -7.63 -72.67 atualizadas
+20 Macapá/AP APMA 0.04 -51.06 atualizadas
+21 Goiânia/GO GOGY -16.65 -49.16 atualizadas
+22 Botucatu/SP SPBO -22.89 -48.44 atualizadas
+23 Chapecó/SC SCCH -27.09 -52.62 atualizadas
+24 Guarapuava/PR PRGU -25.4 -51.46 atualizadas
+25 Juína/MT MTJI -11.42 -58.76 atualizadas
+26 "Nova Xavantina/MT" MTNX -14.68 -52.35 atualizadas
+27 "Barra do Garças/MT" MTGA -15.89 -52.26 atualizadas
+28 Recife/PE PERC -8.07 -34.88 atualizadas
+29 Uberlândia/MG MGUB -18.92 -48.28 atualizadas
+30 "Rio Branco/AC" RIOB -9.98 -67.82 atualizadas
+31 Teresina/PI PITN -5.09 -42.81 atualizadas
+32 Dourados/MS MSDR -22.22 -54.81 atualizadas
+33 Corumbá/MS CORU -19.0 -57.65 atualizadas
+34 "Passo Fundo/RS" RSPF -28.26 -52.4 atualizadas
+35 "Cerro Largo/RS" RSCL -28.15 -54.74 atualizadas
+36 Marabá/PA MABA -5.35 -49.1 atualizadas
+37 "Bom Jesus da Lapa/BA" BABJ -13.25 -43.41 atualizadas
+38 Vassouras/RJ RJVA -22.41 -43.66 atualizadas
+39 Colíder/MT MTCO -10.81 -55.45 atualizadas
+40 "Pau dos Ferros/RN" RNPF -6.11 -38.21 atualizadas
+41 "Barra do Garças/MT" MTGA -15.89 -52.26 atualizadas
+42 Jataí/GO GOJA -17.88 -51.72 atualizadas
+43 "Foz do Iguaçu - ITAIPU/PR" ITAI   atualizadas
+44 Tefé/AM AMTE -3.35 -64.71 atualizadas
+45 "Boa Vista/RR" BOAV 2.82 -60.67 atualizadas
+46 Belém/PA BEPA -1.45 -48.47 atualizadas
+47 Piracicaba/SP SPPI -22.73 -47.65 atualizadas
+48 Campina/SP SPC1 -23.64 -49.09 atualizadas
+49 Palmas/TO TOPL -10.18 -48.33 atualizadas
+50 "João Pessoa/PB" PBJP -7.12 -34.88 atualizadas
+51 "Porto Velho/RO" POVE -8.75 -63.87 atualizadas
+52 "Porto Alegre/RS" POAL -30.03 -51.23 atualizadas
+53 "Salvador/BA - INCRA" SAVO -11.31 -38.22 atualizadas
+54 Aquidauana/MS MSAQ -20.47 -55.78 atualizadas
+55 "Afogados da Ingazeira/PE" PEAF -7.75 -37.63 atualizadas
+56 Belém/PA BELE -1.45 -48.47 atualizadas
+57 Aracaju/SE SEAJ -10.92 -37.08 atualizadas
+58 "Campo Grande/MS" MSCG -20.48 -54.61 atualizadas
+59 Jaíba/MG JAMG -15.34 -43.67 atualizadas
+60 Bacabal/MA MABB -4.23 -44.78 atualizadas
+61 "São Luís/MA" SALU -2.53 -44.3 atualizadas
+62 Vitória/ES CEFE -20.32 -40.34 atualizadas
+63 "Fortaleza (PORTO" CEFT -29.71 -51.57 atualizadas
+64 "Belo Horizonte/MG" MGBH -19.92 -43.95 atualizadas
+65 "Rio de Janeiro/RJ" RIOD -22.91 -43.21 atualizadas
+66 "São Félix do Araguaia/MT" MTSF -11.62 -50.67 atualizadas
+67 Balsas/MA MABS -7.53 -46.04 atualizadas
+68 Jaíba/MG JAMG -15.34 -43.67 atualizadas
+69 "Cruzeiro do Sul/AC" CRUZ -7.63 -72.67 atualizadas
+70 Arapiraca/AL ALAR -9.75 -36.66 atualizadas
+71 Gurupi/TO TOGU -11.73 -49.07 atualizadas
+72 "Vitória da Conquista/BA" BAVC -14.86 -40.84 atualizadas
+73 Jataí/GO GOJA -17.88 -51.72 atualizadas
+74 Marabá/PA MABA -5.35 -49.1 atualizadas
+75 Macapá/AP MAPA 0.04 -51.06 atualizadas
+76 "Cachoeira Paulista/SP" CHPI -22.67 -45.02 atualizadas
+77 Mossoró/RN RNMO -5.19 -37.34 atualizadas
+78 "São José dos Campos/SP" SJSP -23.19 -45.89 atualizadas
+79 Aquidauana/MS MSAQ -20.47 -55.78 atualizadas
+80 Fernandópolis/SP SPFE -20.28 -50.25 atualizadas
+81 Piracicaba/SP SPPI -22.73 -47.65 atualizadas
+82 "Montes Claros/MG" MCL1 -16.73 -43.87 atualizadas
+83 Manaus/AM NAUS -3.13 -59.98 atualizadas
+84 Tabatinga/AM AMTA -4.23 -69.93 atualizadas
+85 Jaboticabal/SP SPJA -21.25 -48.33 atualizadas
+86 "ESCOLA POLITÉCNICA DA USP/SP" POLI   atualizadas
+87 CANANÉIA/SP NEIA -25.01 -47.93 atualizadas
+88 Gurupi/Tocantins TOGU -11.73 -49.07 atualizadas
+89 Brasília/DF BRAZ -15.79 -47.88 atualizadas
+90 Fernandópolis/SP SPFE -20.28 -50.25 atualizadas
+91 Marabá/PA MABA -5.35 -49.1 atualizadas
+92 Floriano/PI PIFL -6.77 -43.01 atualizadas
+93 "Escola Politécnica da USP/SP" POLI   atualizadas
+94 "São Luis/MA" SALU -2.53 -44.3 atualizadas
+95 Altamira/PA PAAT -3.2 -52.21 atualizadas
+96 Fortaleza/CE CEFT -3.73 -38.52 atualizadas
+97 Tabatinga/AM AMTA -4.23 -69.93 atualizadas
+98 Floriano/PI PIFL -6.77 -43.01 atualizadas
+99 Brasília/DF BRAZ -15.79 -47.88 atualizadas
+100 imbituba/SC IMBT -28.24 -48.66 atualizadas
+101 "Cachoeira Paulista/SP" CHPI -22.67 -45.02 atualizadas
+0 "Campo Grande - EMBRAPA/MS" MSGR   novas
+1 "Sao Paulo - USP Leste" EACH -23.49 -46.5 novas
+2 Maracaju MSMJ -21.62 -55.16 novas
+3 "São Leopoldo/RS" RSSL -29.75 -51.15 novas
+4 Patos/PB PBPT -7.03 -37.28 novas
+5 Carceres MTCA -20.13 -50.51 novas
+6 Lavras/MG MGLA -21.24 -45.0 novas
+7 Itiquira MTIT -17.2 -54.14 novas
+8 "Nova Mutum" MTNM -13.83 -56.08 novas
+9 "Parintins - UFAM/AM" AMPT   novas
+10 "Tabatinga - IFAM/AM" AMTG   novas
+11 "SESC Pantanal" MTSC -16.51 -56.38 novas
+12 "Coari - IBGE/AM" AMCR   novas
+13 "Paulo Afonso/BA" BAPA -9.4 -38.23 novas
+14 "Nova Venecia/ES" ESNV -18.71 -40.4 novas
+15 "Macapá - DTCEA/AP" APMA   novas
+16 "Juiz de Fora/MG" MGJF -21.76 -43.35 novas
+17 "Teofilo Otoni/MG" MGTO -17.86 -41.51 novas
+18 Maceió ALMA -9.65 -35.73 novas
+19 "Bela Vista/MS" MSBL -22.11 -56.53 novas
+20 Jardim/MS MSJR -21.48 -56.15 novas
+21 "Corumba - UFMS/MS" CORU -19.0 -57.66 novas
+22 "Novo Mundo/MS" MSMN -23.94 -54.29 novas
+23 "Porto Murtinho/MS" MSPM -21.7 -57.88 novas
+24 Barcelos/AM AMBC -0.97 -62.93 novas
+25 "Recife - IFPE/PE" PERC -8.06 -34.95 novas
+26 Umuarama/PR PRUR -23.76 -53.31 novas
+27 Humaitá/AM AMHA -7.51 -63.02 novas
+28 Caçador SCCA -26.78 -51.01 novas
+29 "Ourinhos - UNESP" SPOR -23.0 -49.84 novas
+30 Manaus/AM AMUA -3.13 -59.98 novas
+31 "Pontes e Lacerda" MTLA -15.23 -59.33 novas
+32 "Primavera do Leste" MTLE -15.56 -54.3 novas
+33 "Campinas - UNICAMP/SP" SPC1 -22.82 -47.06 novas
+34 Naviraí MSNA -23.06 -54.2 novas
+35 fernandópolis/SP SPFE -20.28 -50.25 novas
+36 "Santana - Docas/AP" APS1   novas
+37 "Bom Jesus da Lapa - IF Baiano/BA" BABJ   novas
+38 Aquidauana/MS MSAQ -20.47 -55.78 novas
+39 "Nova Xavantina/MT" MTNX -14.68 -52.35 novas
+40 Maués/AM AMMU -3.38 -57.72 novas
+41 Tabatinga/AM AMTA -4.23 -69.93 novas
+42 Itaberaba/BA BAIT -12.52 -40.31 novas
+43 Uruaçu/GO GOUR -14.52 -49.15 novas
+44 Florianópolis/SC IFSC -27.6 -48.55 novas
+45 Santarém/PA PASM -2.44 -54.7 novas
+46 Franca/SP SPFR -20.53 -47.47 novas
+47 "Belém INPE/PA" BEPA   novas
+48 Coari/AM COAM -4.09 -63.14 novas
+49 Jaíba/MG JAMG -15.34 -43.67 novas
+50  Baca -10.33 -53.2 novas
+51 "Laranjal do Jari/AP" APLJ -0.84 -52.52 novas
+52 "Foz do Iguaçu - ITAIPU/PR" ITAI   novas
+53 "Monte Carmelo/MG" MGMT -18.73 -47.5 novas
+54 "Corumbá - Embrapa/MS" MSCB   novas
+55 "Ponta Porã/MS" MSPP -22.53 -55.72 novas
+56 "Barra do Garcas - UFMT/MT" MTGA   novas
+57 "São José dos Campos/SP" SJSP -23.19 -45.89 novas
+58 "LABORATÓRIO GRAVIMETRIA ONRJ - VASSOURAS/RJ" RJVA   novas
+59 "Passo Fundo/RS" RSPF -28.26 -52.4 novas
+60 "Sorocaba - UNESP/SP" SPS1 -23.48 -47.42 novas
+61 Itacoatiara/AM ITAM -3.15 -58.45 novas
+62 "Fundacao Joao Pinheiro/MG" MGJP -19.85 -43.97 novas
+63 Juína/MT MTJI -11.42 -58.76 novas
+64 "Altamira - UFPA" PAAR -0.72 -48.51 novas
+65 "Niteroi UFF/RJ" RJNI   novas
+66 Parintins/AM AMPR -2.63 -56.73 novas
+0 Aquidauana/MS MSAQ -20.47 -55.78 inoperantes
+1 Cáceres/MT MTCA -16.06 -57.69 inoperantes
+2 "Pelotas - Capão Do Leão/RS" RSPE -31.77 -52.41 inoperantes
+3 "Cruzeiro Do Sul/AC" CRUZ -7.63 -72.67 inoperantes
+4 Jaíba/MG JAMG -15.34 -43.67 inoperantes
+5 Maracaju/MS MSMJ -21.62 -55.16 inoperantes
+6 "Mundo Novo/MS" MSMN -23.94 -54.29 inoperantes
+7 "Primavera Do Leste/MT" MTLE -15.56 -54.3 inoperantes
+8 "São Carlos/SP" EESC -22.02 -47.89 inoperantes
+0  site -10.33 -53.2 
+1  "0 Pe" -10.33 -53.2 
+2  "1 Im" -10.33 -53.2 
+3  "2 Eu" -10.33 -53.2 
+4  "3 ""I" -10.33 -53.2 
+5  "4 Ub" -10.33 -53.2 
+6  "5 Ca" -10.33 -53.2 
+7  "6 ""I" -10.33 -53.2 
+8  "7 It" -10.33 -53.2 
+9  "8 ""B" -10.33 -53.2 
+10  "9 Ar" -10.33 -53.2 
+11  "10 V" -10.33 -53.2 
+12  "11 H" -10.33 -53.2 
+13  "12 C" -10.33 -53.2 
+14  "13 C" -10.33 -53.2 
+15  "14 V" -10.33 -53.2 
+16  "15 """ -10.33 -53.2 
+17  "16 C" -10.33 -53.2 
+18  "17 """ -10.33 -53.2 
+19  "18 """ -10.33 -53.2 
+20  "19 """ -10.33 -53.2 
+21  "20 M" -10.33 -53.2 
+22  "21 G" -10.33 -53.2 
+23  "22 B" -10.33 -53.2 
+24  "23 C" -10.33 -53.2 
+25  "24 G" -10.33 -53.2 
+26  "25 J" -10.33 -53.2 
+27  "26 """ -10.33 -53.2 
+28  "27 """ -10.33 -53.2 
+29  "28 R" -10.33 -53.2 
+30  "29 U" -10.33 -53.2 
+31  "30 """ -10.33 -53.2 
+32  "31 T" -10.33 -53.2 
+33  "32 D" -10.33 -53.2 
+34  "33 C" -10.33 -53.2 
+35  "34 """ -10.33 -53.2 
+36  "35 """ -10.33 -53.2 
+37  "36 M" -10.33 -53.2 
+38  "37 """ -10.33 -53.2 
+39  "38 V" -10.33 -53.2 
+40  "39 C" -10.33 -53.2 
+41  "40 """ -10.33 -53.2 
+42  "41 """ -10.33 -53.2 
+43  "42 J" -10.33 -53.2 
+44  "43 """ -10.33 -53.2 
+45  "44 T" -10.33 -53.2 
+46  "45 """ -10.33 -53.2 
+47  "46 B" -10.33 -53.2 
+48  "47 P" -10.33 -53.2 
+49  "48 C" -10.33 -53.2 
+50  "49 P" -10.33 -53.2 
+51  "50 """ -10.33 -53.2 
+52  "51 """ -10.33 -53.2 
+53  "52 """ -10.33 -53.2 
+54  "53 """ -10.33 -53.2 
+55  "54 A" -10.33 -53.2 
+56  "55 """ -10.33 -53.2 
+57  "56 B" -10.33 -53.2 
+58  "57 A" -10.33 -53.2 
+59  "58 """ -10.33 -53.2 
+60  "59 J" -10.33 -53.2 
+61  "60 B" -10.33 -53.2 
+62  "61 """ -10.33 -53.2 
+63  "62 V" -10.33 -53.2 
+64  "63 """ -10.33 -53.2 
+65  "64 """ -10.33 -53.2 
+66  "65 """ -10.33 -53.2 
+67  "66 """ -10.33 -53.2 
+68  "67 B" -10.33 -53.2 
+69  "68 J" -10.33 -53.2 
+70  "69 """ -10.33 -53.2 
+71  "70 A" -10.33 -53.2 
+72  "71 G" -10.33 -53.2 
+73  "72 """ -10.33 -53.2 
+74  "73 J" -10.33 -53.2 
+75  "74 M" -10.33 -53.2 
+76  "75 M" -10.33 -53.2 
+77  "76 """ -10.33 -53.2 
+78  "77 M" -10.33 -53.2 
+79  "78 """ -10.33 -53.2 
+80  "79 A" -10.33 -53.2 
+81  "80 F" -10.33 -53.2 
+82  "81 P" -10.33 -53.2 
+83  "82 """ -10.33 -53.2 
+84  "83 M" -10.33 -53.2 
+85  "84 T" -10.33 -53.2 
+86  "85 J" -10.33 -53.2 
+87  "86 """ -10.33 -53.2 
+88  "87 C" -10.33 -53.2 
+89  "88 G" -10.33 -53.2 
+90  "89 B" -10.33 -53.2 
+91  "90 F" -10.33 -53.2 
+92  "91 M" -10.33 -53.2 
+93  "92 F" -10.33 -53.2 
+94  "93 """ -10.33 -53.2 
+95  "94 """ -10.33 -53.2 
+96  "95 A" -10.33 -53.2 
+97  "96 F" -10.33 -53.2 
+98  "97 T" -10.33 -53.2 
+99  "98 F" -10.33 -53.2 
+100  "99 B" -10.33 -53.2 
+101  100 -10.33 -53.2 
+102  101 -10.33 -53.2 
+103  "0 ""C" -10.33 -53.2 
+104  "1 ""S" -10.33 -53.2 
+105  "2 Ma" -10.33 -53.2 
+106  "3 ""S" -10.33 -53.2 
+107  "4 Pa" -10.33 -53.2 
+108  "5 Ca" -10.33 -53.2 
+109  "6 La" -10.33 -53.2 
+110  "7 It" -10.33 -53.2 
+111  "8 ""N" -10.33 -53.2 
+112  "9 ""P" -10.33 -53.2 
+113  "10 """ -10.33 -53.2 
+114  "11 """ -10.33 -53.2 
+115  "12 """ -10.33 -53.2 
+116  "13 """ -10.33 -53.2 
+117  "14 """ -10.33 -53.2 
+118  "15 """ -10.33 -53.2 
+119  "16 """ -10.33 -53.2 
+120  "17 """ -10.33 -53.2 
+121  "18 M" -10.33 -53.2 
+122  "19 """ -10.33 -53.2 
+123  "20 J" -10.33 -53.2 
+124  "21 """ -10.33 -53.2 
+125  "22 """ -10.33 -53.2 
+126  "23 """ -10.33 -53.2 
+127  "24 B" -10.33 -53.2 
+128  "25 """ -10.33 -53.2 
+129  "26 U" -10.33 -53.2 
+130  "27 H" -10.33 -53.2 
+131  "28 C" -10.33 -53.2 
+132  "29 """ -10.33 -53.2 
+133  "30 M" -10.33 -53.2 
+134  "31 """ -10.33 -53.2 
+135  "32 """ -10.33 -53.2 
+136  "33 """ -10.33 -53.2 
+137  "34 N" -10.33 -53.2 
+138  "35 f" -10.33 -53.2 
+139  "36 """ -10.33 -53.2 
+140  "37 """ -10.33 -53.2 
+141  "38 A" -10.33 -53.2 
+142  "39 """ -10.33 -53.2 
+143  "40 M" -10.33 -53.2 
+144  "41 T" -10.33 -53.2 
+145  "42 I" -10.33 -53.2 
+146  "43 U" -10.33 -53.2 
+147  "44 F" -10.33 -53.2 
+148  "45 S" -10.33 -53.2 
+149  "46 F" -10.33 -53.2 
+150  "47 """ -10.33 -53.2 
+151  "48 C" -10.33 -53.2 
+152  "49 J" -10.33 -53.2 
+153  50 -10.33 -53.2 
+154  "51 """ -10.33 -53.2 
+155  "52 """ -10.33 -53.2 
+156  "53 """ -10.33 -53.2 
+157  "54 """ -10.33 -53.2 
+158  "55 """ -10.33 -53.2 
+159  "56 """ -10.33 -53.2 
+160  "57 """ -10.33 -53.2 
+161  "58 """ -10.33 -53.2 
+162  "59 """ -10.33 -53.2 
+163  "60 """ -10.33 -53.2 
+164  "61 I" -10.33 -53.2 
+165  "62 """ -10.33 -53.2 
+166  "63 J" -10.33 -53.2 
+167  "64 """ -10.33 -53.2 
+168  "65 """ -10.33 -53.2 
+169  "66 P" -10.33 -53.2 
+170  "0 Aq" -10.33 -53.2 
+171  "1 Cá" -10.33 -53.2 
+172  "2 ""P" -10.33 -53.2 
+173  "3 ""C" -10.33 -53.2 
+174  "4 Ja" -10.33 -53.2 
+175  "5 Ma" -10.33 -53.2 
+176  "6 ""M" -10.33 -53.2 
+177  "7 ""P" -10.33 -53.2 
+178  "8 ""S" -10.33 -53.2 
