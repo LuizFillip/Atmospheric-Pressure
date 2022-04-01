@@ -51,25 +51,81 @@ def rinex_files():
 
 
 
-infile = 'Database/station_data_brasil/'
+def setting_dataframe(infile, filename, component = 'PR', N = 30):
 
-stations = ['SMAR','MSMN','MTCA','SPFR']
 
-def select_files(stations, infile):
+
+    df = pd.read_csv(infile + filename, 
+                     header = 0,
+                     delim_whitespace = True, 
+                     names = ['PR', 'TD', 'HR']) 
     
-    _, _, files = next(os.walk(infile))
+    df.index = pd.to_datetime(df.index)
     
-    out = []
-    for filename in files:
-        if any(sts.lower() in filename for sts in stations):
-            out.append(filename)
-            
-    return out
-
-files = select_files(['0151'], infile)
-
-for filename in files:
-    acronym = filename[:4].upper()
     
+    df['dtrend'] = (df[component] - df[component].rolling(window = N).mean())
+    
+    df['time'] = df.index.hour + (df.index.minute / 60)
+    
+    df = df.dropna()
+    
+    return df
 
 
+
+
+from MagnetometerAnalysis.WaveletAnalysis import *
+import  MagnetometerAnalysis.Embrace as ebc
+
+fig, ax = plt.subplots(nrows = 2, 
+                       sharex = True) #sharey  = True)
+
+plt.subplots_adjust(hspace = 0)
+
+N = 30
+fontsize = 12
+
+## Magnetometer 
+mag = ebc.setting_dataframe('MagnetometerAnalysis/Database/Magnetometer15012022/', 
+                  'eus15jan.22m', component = 'H(nT)', N = N)
+
+#Wavelet(mag, ax[0], transform = 'power')
+
+
+ax[0].plot(mag['dtrend'], lw= 1, color = 'k')
+
+
+ax[0].text(0.03, 0.87, 'Horizontal Component (H)', 
+                         transform = ax[0].transAxes)
+
+
+## Pressure variation
+pr = setting_dataframe('PressureAnalysis/Database/station_data_brasil/', 
+                'ceeu0151.txt', N = N)
+
+
+ax[1].plot(pr['dtrend'], lw = 1, color = 'k')
+
+#Wavelet(pr, ax[1], transform = 'power')
+
+ax[1].text(0.03, 0.87, 'Pressure variatins (dP)', 
+                         transform = ax[1].transAxes)
+
+ax[1].set(xlabel = 'Univertal time')
+
+ax[1].xaxis.set_major_formatter(dates.DateFormatter('%H'))
+ax[1].xaxis.set_major_locator(dates.HourLocator(interval = 2))
+
+def date(instance_, format_ = "%d/%m/%Y"):
+        return instance_.date.strftime(format_)
+
+fig.text(0.03, 0.5, 'Variation', va = 'center', 
+                 rotation='vertical', fontsize = fontsize)   
+
+fig.suptitle(f'dTrend analysis - Eusébio/CE - 15/01/2022', 
+                 y = 0.92, fontsize = fontsize)
+    
+plt.rcParams.update({'font.size': fontsize})    
+
+plt.savefig('PressureAnalysis/Figures/dtrend.png', 
+            dpi = 100, bbox_inches="tight")
