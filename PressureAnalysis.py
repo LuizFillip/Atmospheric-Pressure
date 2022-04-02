@@ -51,7 +51,8 @@ def rinex_files():
 
 
 
-def setting_dataframe(infile, filename, component = 'PR', N = 30):
+def setting_dataframe(infile, filename, 
+                      component = 'PR', N = 10):
 
 
 
@@ -69,63 +70,80 @@ def setting_dataframe(infile, filename, component = 'PR', N = 30):
     
     df = df.dropna()
     
+    
     return df
 
 
 
 
-from MagnetometerAnalysis.WaveletAnalysis import *
-import  MagnetometerAnalysis.Embrace as ebc
+class infos_met:
+    def __init__(self, filename = None):
+        # ['Franca/SP', 'SPFR', -20.53, -47.47], ['Umuarama/PR', 'PRUR', -23.76, -53.31], 
+        self.infos_ = np.array([['Eusébio/CE', 'CEEU', -3.89, -38.45], 
+                          ['Palmas/TO', 'TOPL', -10.18, -48.33], 
+                          ['Aracaju/SE', 'SEAJ', -10.92, -37.08], 
+                          ['Carceres', 'MTCA', -20.13, -50.51],
+                          ['Bela Vista/MS', 'MSBL', -22.11, -56.53],
+                          ['São Carlos/SP', 'EESC', -22.02, -47.89],
+                          ['Santa Maria/RS', 'SMAR', -29.71, -53.71], 
+                          ['Foz do Iguaçu - ITAIPU/PR', 'ITAI', -25.42, -54.58, ]])
+        
+        if filename is not None:
+            self.acc = filename
+            
+            self.cond = self.infos_[(self.infos_[:, 1] == 
+                                     self.acc[:4].upper())][0]
+        
+    @property
+    def infos(self):
+        return self.cond
+    
+    @property
+    def sites_names(self):
+        return self.infos_[:, 0]
+    @property
+    def acronyms(self):
+        return self.infos_[:, 1]
+    @property
+    def latitudes(self):
+        return pd.to_numeric(self.infos_[:, 2])
+    @property
+    def longitudes(self):
+        return pd.to_numeric(self.infos_[:, 3]) 
+    
 
-fig, ax = plt.subplots(nrows = 2, 
-                       sharex = True) #sharey  = True)
+
+files = ['ceeu0151.txt', 'eesc0151.txt',  
+         'msbl0151.txt', 'topl0151_n.txt',
+         'mtca0151.txt', 'prur0151.txt',  
+         'seaj0151.txt', 'smar0151.txt', 
+         'itai0151.txt', 'prur0151.txt']
+
+print(len(files))
+
+for filename in files:
+    try:
+        x = infos_met(filename)
+        print(x.cond)
+    except:
+        print(filename)
+'''
+nrows = len(files)
+figsize = (6, 10)
+ 
+    
+fig, axs = plt.subplots(figsize = figsize, 
+                       sharex = True, 
+                       nrows = nrows)
 
 plt.subplots_adjust(hspace = 0)
 
-N = 30
-fontsize = 12
 
-## Magnetometer 
-mag = ebc.setting_dataframe('MagnetometerAnalysis/Database/Magnetometer15012022/', 
-                  'eus15jan.22m', component = 'H(nT)', N = N)
-
-#Wavelet(mag, ax[0], transform = 'power')
-
-
-ax[0].plot(mag['dtrend'], lw= 1, color = 'k')
-
-
-ax[0].text(0.03, 0.87, 'Horizontal Component (H)', 
-                         transform = ax[0].transAxes)
-
-
-## Pressure variation
-pr = setting_dataframe('PressureAnalysis/Database/station_data_brasil/', 
-                'ceeu0151.txt', N = N)
-
-
-ax[1].plot(pr['dtrend'], lw = 1, color = 'k')
-
-#Wavelet(pr, ax[1], transform = 'power')
-
-ax[1].text(0.03, 0.87, 'Pressure variatins (dP)', 
-                         transform = ax[1].transAxes)
-
-ax[1].set(xlabel = 'Univertal time')
-
-ax[1].xaxis.set_major_formatter(dates.DateFormatter('%H'))
-ax[1].xaxis.set_major_locator(dates.HourLocator(interval = 2))
-
-def date(instance_, format_ = "%d/%m/%Y"):
-        return instance_.date.strftime(format_)
-
-fig.text(0.03, 0.5, 'Variation', va = 'center', 
-                 rotation='vertical', fontsize = fontsize)   
-
-fig.suptitle(f'dTrend analysis - Eusébio/CE - 15/01/2022', 
-                 y = 0.92, fontsize = fontsize)
+for num, ax in enumerate(axs.flat):
+    df = setting_dataframe(infile, files[num], 
+                      component = 'PR', N = 10)
     
-plt.rcParams.update({'font.size': fontsize})    
+    df['dtrend'].plot(ax = ax)
 
-plt.savefig('PressureAnalysis/Figures/dtrend.png', 
-            dpi = 100, bbox_inches="tight")
+'''
+

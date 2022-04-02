@@ -23,15 +23,16 @@ from GeoMagCoords import *
 def get_status(infile, filename):
     
     """
-    Read data and find latitudes and longitudes
-    for each sites
+    Read data and get latitudes and longitudes
+    for each sites using the get_coords funcitons from 
+    'GeoMagCoords' modulus
     """
     
     def find_between(s, first, last):
         "Find string between two substrings [duplicate]"
         try:
-            start = s.index( first ) + len( first )
-            end = s.index( last, start )
+            start = s.index(first) + len(first)
+            end = s.index(last, start)
             return s[start:end]
         except ValueError:
             return ""
@@ -67,9 +68,9 @@ def main(infile):
 
     return pd.concat(output)
 
-infile = 'Database/status/'
+#infile = 'Database/status/'
 
 
-df = main(infile)
+#df = main(infile)
 
-print(df.to_csv(infile + 'stations.txt', sep = ' '))
+#print(df.to_csv(infile + 'stations.txt', sep = ' '))
