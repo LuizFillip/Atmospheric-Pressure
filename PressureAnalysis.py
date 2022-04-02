@@ -78,15 +78,16 @@ def setting_dataframe(infile, filename,
 
 class infos_met:
     def __init__(self, filename = None):
-        # ['Franca/SP', 'SPFR', -20.53, -47.47], ['Umuarama/PR', 'PRUR', -23.76, -53.31], 
+        # ['Franca/SP', 'SPFR', -20.53, -47.47], 
+        # ['Umuarama/PR', 'PRUR', -23.76, -53.31], 
         self.infos_ = np.array([['Eusébio/CE', 'CEEU', -3.89, -38.45], 
                           ['Palmas/TO', 'TOPL', -10.18, -48.33], 
                           ['Aracaju/SE', 'SEAJ', -10.92, -37.08], 
-                          ['Carceres', 'MTCA', -20.13, -50.51],
+                          ['Carceres/MG', 'MTCA', -20.13, -50.51],
                           ['Bela Vista/MS', 'MSBL', -22.11, -56.53],
                           ['São Carlos/SP', 'EESC', -22.02, -47.89],
                           ['Santa Maria/RS', 'SMAR', -29.71, -53.71], 
-                          ['Foz do Iguaçu - ITAIPU/PR', 'ITAI', -25.42, -54.58, ]])
+                          ['Foz do Iguaçu/PR', 'ITAI', -25.42, -54.58]])
         
         if filename is not None:
             self.acc = filename
@@ -112,38 +113,4 @@ class infos_met:
         return pd.to_numeric(self.infos_[:, 3]) 
     
 
-
-files = ['ceeu0151.txt', 'eesc0151.txt',  
-         'msbl0151.txt', 'topl0151_n.txt',
-         'mtca0151.txt', 'prur0151.txt',  
-         'seaj0151.txt', 'smar0151.txt', 
-         'itai0151.txt', 'prur0151.txt']
-
-print(len(files))
-
-for filename in files:
-    try:
-        x = infos_met(filename)
-        print(x.cond)
-    except:
-        print(filename)
-'''
-nrows = len(files)
-figsize = (6, 10)
- 
-    
-fig, axs = plt.subplots(figsize = figsize, 
-                       sharex = True, 
-                       nrows = nrows)
-
-plt.subplots_adjust(hspace = 0)
-
-
-for num, ax in enumerate(axs.flat):
-    df = setting_dataframe(infile, files[num], 
-                      component = 'PR', N = 10)
-    
-    df['dtrend'].plot(ax = ax)
-
-'''
 
