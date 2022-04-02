@@ -37,19 +37,7 @@ def circle_range(ax, longitude, latitude, radius = 500):
 
 
 
-
-def PlotPressure(ax):
-    
-        
-    if save: 
-        NameToSave = 'LocationsMagnetometersAndPressure.png'
-        path_to_save = 'PressureAnalysis/Figures/'
-        
-        plt.savefig(path_to_save + NameToSave, 
-                dpi = 100, bbox_inches="tight")
-        
-
-start_lat, end_lat = -60, 20
+start_lat, end_lat = -40, 10
 start_lon, end_lon = -75, -30 
 step_lat, step_lon = 5, 5
     
@@ -58,17 +46,26 @@ step_lat, step_lon = 5, 5
 fig, ax = features_of_map(start_lon, end_lon, step_lon, 
                           start_lat, end_lat, step_lat)    
 
-fontsize = 14
-# Plot meteorology stations (pressure) points 
 
-# Plot EMbrace magnetometers points 
-#Plot_EMBRACE(fig, ax, fontsize = fontsize)
+from PressureAnalysis.pressureAnalysis import *
 
-# Brazilian stations of intermagnet 
-files_intermagnet = ['pil20220115pmin.min.txt', 'ttb20220115qmin.min']
+x =  infos_met()
+
+for lat, lon, name in zip(x.latitudes, 
+                          x.longitudes, 
+                          x.sites_names):
     
-#Plot_from_files(fig, ax, files_intermagnet, 'MagnetometerAnalysis/Database/Intermag/', 
-#                dip = True, fontsize = fontsize, save = False)
+    ax.plot(lon, lat, marker = 'o', 
+            color = 'blue', markersize = 15)
+    
+    ax.text(lon, lat, name)
+    
+    
+fig.suptitle('IBGE Meteorology Stations', y = 0.91)
 
 
-#ax.legend(loc = 'center')
+NameToSave = 'LocationsIBGEStations.png'
+path_to_save = 'PressureAnalysis/Figures/'
+
+plt.savefig(path_to_save + NameToSave, 
+        dpi = 100, bbox_inches="tight")
