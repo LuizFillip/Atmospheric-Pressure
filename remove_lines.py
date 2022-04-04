@@ -61,3 +61,4 @@ def main():
     plt.subplots_adjust(hspace = 0, wspace = 0)
      
     remove_lines(ax, nrows, ncols)
+

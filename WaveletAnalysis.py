@@ -36,8 +36,7 @@ def Wavelet(df, ax = None,
     
     '''
     
-    wavelet_path = 'C:\\Users\\LuizF\\Google Drive\\My Drive\\'\
-    'Python\\code-master\\wavelets-master\\wave_python\\'
+    wavelet_path = 'G:\Meu Drive\Python\code-master\wavelets-master\wave_python'
     
     sys.path.insert(1, wavelet_path)
     from waveletFunctions import wave_signif, wavelet
@@ -95,6 +94,92 @@ def Wavelet(df, ax = None,
     
     return time, new_period, new_power, new_sig95
 
+
+from PressureAnalysis.remove_lines import *
+
+files = ['sms15jan.22m', 'smar0151.txt', 
+        'vss15jan.22m',  'eesc0151.txt', 
+        'ara15jan.22m', 'topl0151_n.txt', 
+        'eus15jan.22m', 'ceeu0151.txt']
+
+pre_infile = 'PressureAnalysis/Database/station_data_brasil/'
+mag_infile = 'MagnetometerAnalysis/Database/Magnetometer15012022/'
+
+import PressureAnalysis.pressureAnalysis as pr
+
+
+sys.path.insert(1, 'MagnetometerAnalysis')
+
+import Embrace as mg
+
+nrows = 4
+ncols = 2
+
+fig, axs = plt.subplots(figsize = (12, 10), 
+                      nrows = nrows, 
+                      ncols = ncols)
+
+plt.subplots_adjust(hspace = 0, wspace = 0)
+
+remove_lines(axs, nrows, ncols)
+
+x = np.array([['Rio Grande', 'rga', -53.78, -67.70],
+                ['São Martinho da Serra/RS', 'sms', -29.53,-53.85], 
+                ['Tucumán', 'tcm', -26.56, -64.88], 
+                ['São José Dos Campos', 'sjc', -23.19, -45.89], 
+                ['Vassouras/RJ', 'vss', -22.41, -43.66],
+                ['Jataí', 'jat', -17.88, -51.72], 
+                ['Cuiabá', 'cba', -15.60, -56.10], 
+                ['Araguatins/TO', 'ara', -5.65, -48.12], 
+                ['Eusébio/CE', 'eus',  -3.89, -38.45], 
+                ['São Luis', 'slz', -2.53, -44.30],
+                ["Pilar", "pil", -31.7, -63.89],
+                ["Tatuoca", "ttb", -1.205, -48.51]])
+
+axs[0, 0].set(title = 'EMBRACE Magnetometers')
+axs[0, 1].set(title = 'IBGE Stations')
+for num, ax in enumerate(axs.flat):
+    
+    filename = files[num]
+    
+    if '15jan.22m' in filename:
+        infile = mag_infile
+        df = mg.setting_dataframe(infile, filename)
+        im = Wavelet(df, ax, transform = 'power')
+       
+        name = x[(x[:, 1] == filename[:3])][0][0]
+                
+
+    else:
+        infile = pre_infile
+   
+        df = pr.setting_dataframe(infile, filename)
+        im = Wavelet(df, ax, transform = 'power')
+
+        name = infos_met(filename).infos[0]
+        
+            
+    
+    ax.text(0.03, 0.8, name, transform = ax.transAxes)
+
+    ax.xaxis.set_major_formatter(dates.DateFormatter('%H'))
+    ax.xaxis.set_major_locator(dates.HourLocator(interval = 2))
+    
+    
+fig.text(0.06, 0.5, 'Period (hours)', va='center', 
+             rotation='vertical', fontsize = fontsize)   
+
+fig.text(0.45, 0.08, 'Universal time (UT)', va='center', 
+             rotation='horizontal', fontsize = fontsize) 
+
+fig.suptitle(f'Wavelet Analysis - 15/01/2022', 
+             y = 0.94, fontsize = 20)
+
+
+path_to_save = 'PressureAnalysis/Figures/'
+ 
+plt.savefig(path_to_save + 'MagnetometersPressureWaveletAnalysis.png', 
+        dpi = 100, bbox_inches="tight")
         
 def plot(files, infile, nrows = 4, ncols = 2, transform = 'power', 
          component = 'H', fontsize = 14, save = False):
@@ -157,15 +242,4 @@ def plot(files, infile, nrows = 4, ncols = 2, transform = 'power',
     
     plt.show()            
     
-files = ['ceeu0151.txt', 'seaj0151.txt', 
-        'topl0151_n.txt', 'mtca0151.txt',
-        'eesc0151.txt',  'msbl0151.txt',
-        'itai0151.txt', 'smar0151.txt']
 
-files = files[::-1]
-
-infile = 'PressureAnalysis/Database/station_data_brasil/'
-    
-    
-plot(files, infile, nrows = 4, ncols = 2, transform = 'power', 
-         component = 'H', fontsize = 14, save =True)
