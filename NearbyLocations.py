@@ -92,10 +92,10 @@ for num, ax in enumerate(axs.flat):
     ax.xaxis.set_major_locator(dates.HourLocator(interval = 2))
     
     
-fig.text(0.06, 0.5, 'Horizontal component', va='center', 
+fig.text(0.06, 0.5, 'Horizontal component (nT)', va='center', 
              rotation='vertical', fontsize = fontsize)   
 
-fig.text(0.97, 0.5, 'Pressure variation', va='center', 
+fig.text(0.97, 0.5, 'Pressure variation (mbar)', va='center', 
              rotation='vertical', fontsize = fontsize)   
 
 fig.text(0.45, 0.08, 'Universal time (UT)', va='center', 
