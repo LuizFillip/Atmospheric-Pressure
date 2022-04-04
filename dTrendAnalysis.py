@@ -12,7 +12,7 @@ file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 
 
-from PressureAnalysis.pressureAnalysis import *
+from pressureAnalysis import *
 
 
 files =['ceeu0151.txt', 'seaj0151.txt', 

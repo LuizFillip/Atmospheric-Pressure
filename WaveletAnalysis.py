@@ -23,7 +23,7 @@ sys.path.append(file_dir)
 
 from PressureAnalysis.pressureAnalysis import *
 
-
+from PressureAnalysis.remove_lines import *
 
 def Wavelet(df, ax = None, 
                  transform = 'power', 
@@ -105,61 +105,40 @@ def plot(files, infile, nrows = 4, ncols = 2, transform = 'power',
     
     plt.subplots_adjust(hspace = 0, wspace = 0)
     
+    remove_lines(ax, nrows, ncols)
     
-    for x in range(nrows):
-        for y in range(ncols):
-            
-            num = ((x + 1) * (y + 1)) - 1
-            
+    for num, ax in enumerate(ax.flat):
     
-            filename = files[num]
-            
-            # Read the files
-            instance_ = intermagnet(filename, infile)
-            
-            df = instance_.dataframe(component = component)
-            
-           
-            im = Wavelet(df, ax[x, y], transform = transform)
-            
- 
-            ax[x, y].text(0.03, 0.89, instance_.name, 
-                          transform = ax[x, y].transAxes)
-            
-            deltatime = datetime.timedelta(minutes = 30)
-            
-            ax[x, y].set(ylim = [0, 1.3], 
-                        xlim = [df.index[0] - deltatime, 
-                                df.index[-1] + deltatime],
-                         yticks = np.arange(0, 1.2, 0.2))
-            
-            ax[x, y].xaxis.set_major_formatter(dates.DateFormatter('%H'))   
-            ax[x, y].xaxis.set_major_locator(dates.HourLocator(interval = 2))
-            
-            
-    cax, kw = mpl.colorbar.make_axes([axes for axes in ax.flat])
-    
-    if transform == 'power':    
-        vmin, vmax, step = 0, 1, 0.1
-    else:
-        vmin, vmax, step = -1, 1, 0.1
         
-    cbar = fig.colorbar(im, cax=cax, **kw, 
-                        ticks = np.arange(vmin, vmax + step, step))
+        df = setting_dataframe(infile, files[num])
+        
     
-    cbar.set_label(f'{transform.title()} Spectral Density (normalized)')
+        im = Wavelet(df, ax, transform = transform)
+        
+        name = infos_met(files[num]).infos[0]
+        ax.text(0.03, 0.89, name, 
+                      transform = ax.transAxes)
     
+         
+        deltatime = datetime.timedelta(minutes = 30)
+        
+        ax.set(ylim = [0, 1.3], 
+                    xlim = [df.index[0] - deltatime, 
+                            df.index[-1] + deltatime],
+                     yticks = np.arange(0, 1.2, 0.2))
+        
+        ax.xaxis.set_major_formatter(dates.DateFormatter('%H'))   
+        ax.xaxis.set_major_locator(dates.HourLocator(interval = 2))
+            
+            
     fig.text(0.07, 0.5, 'Period (hours)', va='center', 
                  rotation='vertical', fontsize = fontsize)   
     
     fig.text(0.4, 0.08, 'Universal time (UT)', va='center', 
                  rotation='horizontal', fontsize = fontsize) 
+
     
-    # Datetime format
-    def date(format_ = "%d/%m/%Y"):
-        return instance_.date.strftime(format_)
-    
-    fig.suptitle(f'Wavelet Analysis - {transform.title()} Spectral - {date()}', 
+    fig.suptitle(f'Wavelet Analysis - Pressure Variation - 15/01/2022', 
                  y = 0.9, fontsize = fontsize)
     
     plt.rcParams.update({'font.size': fontsize})    
@@ -168,19 +147,25 @@ def plot(files, infile, nrows = 4, ncols = 2, transform = 'power',
     
     if save:
           
-        NameToSave = f'{transform.title()}WaveletAnalysis{date(format_ = "%d%m%Y")}.png'
+        NameToSave = f'WaveletAnalysisPressure.png'
         
-        path_to_save = 'Figures/INTERMAGNET/'
+        path_to_save = 'PressureAnalysis/Figures/'
     
         plt.savefig(path_to_save + NameToSave, 
                     dpi = 100, bbox_inches="tight")
     
     
     plt.show()            
+    
+files = ['ceeu0151.txt', 'seaj0151.txt', 
+        'topl0151_n.txt', 'mtca0151.txt',
+        'eesc0151.txt',  'msbl0151.txt',
+        'itai0151.txt', 'smar0151.txt']
 
-### Run
-#infile = 'Database/Intermag/'
+files = files[::-1]
 
-#files = get_filenames_from_codes(infile)
-
-#(files, infile, fontsize = 14, save = True)
+infile = 'PressureAnalysis/Database/station_data_brasil/'
+    
+    
+plot(files, infile, nrows = 4, ncols = 2, transform = 'power', 
+         component = 'H', fontsize = 14, save =True)

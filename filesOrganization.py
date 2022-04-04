@@ -12,7 +12,7 @@ import pandas as pd
 import sys
 
 infile = ('C:/Users/LuizF/Google Drive/My Drive/' + 
-  'Python/code-master/JunkCode/')
+          'Python/code-master/JunkCode/')
 
 sys.path.insert(1, infile)
 
@@ -58,19 +58,41 @@ def get_status(infile, filename):
     return pd.DataFrame(result, columns = ['site', 'acronym', 
                                            'Lat', 'Lon', 'status'])
 
-def main(infile):
 
-    output = []
-    _, _, files = next(os.walk(infile))
+def get_infos_by_files(filenames):
     
-    for filename in files:
-        output.append(get_status(infile, filename)) 
+    '''
+    filenames = ['ceeu0151.txt', 'eesc0151.txt',  
+            'msbl0151.txt', 'topl0151_n.txt',
+            'msnv0151.txt', 'mtca0151.txt', 
+            'prma0151.txt', 'prur0151.txt',  
+            'rsal0151.txt', 'seaj0151.txt',  
+            'smar0151.txt', 'spfr0151.txt',]
+    
+    '''
+    
+    
+    df = pd.read_csv('PressureAnalysis/Database/status/stations.txt', 
+                      delim_whitespace = True)
+    
+    df = df.drop_duplicates(subset=['acronym'])
+    
+    df = df.dropna()
+    
+    result = []
+    for num in range(len(df)):
+        name = df.iloc[num]['site']
+        acc = df.iloc[num]['acronym']
+        lat =  df.iloc[num]['Lat']
+        lon =  df.iloc[num]['Lon']
+        
+        if any(s[:4].upper() == acc for s in filenames):
+    
+            result.append([name, acc, float(lat), float(lon)])
+    
 
-    return pd.concat(output)
-
-#infile = 'Database/status/'
+    return np.array(result)
 
 
-#df = main(infile)
-
-#print(df.to_csv(infile + 'stations.txt', sep = ' '))
+    
+       
