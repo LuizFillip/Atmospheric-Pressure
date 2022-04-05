@@ -74,8 +74,6 @@ def setting_dataframe(infile, filename,
     return df
 
 
-
-
 class infos_met:
     def __init__(self, filename = None):
         # ['Franca/SP', 'SPFR', -20.53, -47.47], 
