@@ -1,28 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Apr  1 22:51:38 2022
-
-@author: LuizF
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 14 10:23:32 2022
-
-@author: LuizF
-"""
 import os.path
 import sys
-import matplotlib.ticker as ticker
-import matplotlib as mpl
-from pylab import *
-
-file_dir = os.path.dirname(__file__)
-sys.path.append(file_dir)
-
-
 from PressureAnalysis.pressureAnalysis import *
-
 from PressureAnalysis.remove_lines import *
 
 def Wavelet(df, ax = None, 
